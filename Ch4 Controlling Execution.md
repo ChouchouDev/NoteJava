@@ -1,4 +1,4 @@
-第四章 控制执行流程
+###第四章 控制执行流程
 #### 4.1 true和false
 #### 4.2 if-else
 #### 4.3 迭代
@@ -15,3 +15,19 @@ for(char c : "An African Swallow".toCharArray() )
 #### 4.6 break和continue
 break用于强行退出循环，continue则停止执行当前的迭代
 #### 4.7 臭名昭著的goto
+```java
+label1:
+    outer-iteration {
+      inner-iteration {
+        //...
+        break; // (1)
+        //...
+        continue; // (2)
+        //...
+        continue label1; // (3)
+        //...
+        break label1; // (4)
+} }
+```
+#### 4.8 switch
+
