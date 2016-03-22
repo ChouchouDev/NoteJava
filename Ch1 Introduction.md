@@ -31,8 +31,8 @@
 >（2）脚本语言. --> JavaStript  
 >（3）Java. 通过applet以及使用Java Web Start来进行客户端编程  
 >（4）由于applet运行时需要10M带宽的要求过分了点，所以没有得到大规模的应用。Macromedia的
-Flex基于Flash的折中技术得到认可
->（5）NET和C#语言：Java的竞争对手
+Flex基于Flash的折中技术得到认可  
+>（5）.NET和C#语言：Java的竞争对手  
 >（6）Internet与Intranet：当Web技术仅限用于特定公司的信息网络时，它就被称为Intranet(企业内部网)  
 
 3、服务器端编程
