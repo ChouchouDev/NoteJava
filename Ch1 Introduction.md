@@ -34,5 +34,5 @@
 Flex基于Flash的折中技术得到认可
 >（5）NET和C#语言：Java的竞争对手
 >（6）Internet与Intranet：当Web技术仅限用于特定公司的信息网络时，它就被称为Intranet(企业内部网)
-3、服务器端编程
+  3、服务器端编程
 
