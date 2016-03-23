@@ -146,3 +146,164 @@ public class Mugs {
 ```
 效果和静态数据初始化一样
 #### 5.8 数组初始化
+```java
+int[] a1;
+int a2[];
+```
+以下用括起来的列表进行初始化
+```java
+//: initialization/ArrayInit.java
+// Array initialization.
+import java.util.*;
+
+public class ArrayInit {
+  public static void main(String[] args) {
+    Integer[] a = {
+      new Integer(1),
+      new Integer(2),
+      3, // Autoboxing
+    };
+    Integer[] b = new Integer[]{
+      new Integer(1),
+      new Integer(2),
+      3, // Autoboxing
+    };
+    System.out.println(Arrays.toString(a));
+    System.out.println(Arrays.toString(b));
+  }
+} /* Output:
+[1, 2, 3]
+[1, 2, 3]
+*///:~
+```
+
+可变参数列表
+```java
+//: initialization/VarArgs.java
+// Using array syntax to create variable argument lists.
+
+class A {}
+
+public class VarArgs {
+  static void printArray(Object[] args) {
+    for(Object obj : args)
+      System.out.print(obj + " ");
+    System.out.println();
+  }
+  public static void main(String[] args) {
+    printArray(new Object[]{
+      new Integer(47), new Float(3.14), new Double(11.11)
+    });
+    printArray(new Object[]{"one", "two", "three" });
+    printArray(new Object[]{new A(), new A(), new A()});
+  }
+} /* Output: (Sample)
+47 3.14 11.11
+one two three
+A@1a46e30 A@3e25a5 A@19821f
+*///:~
+```
+可变参数列表变为数组的情形：
+```java
+//: initialization/VarargType.java
+
+public class VarargType {
+  static void f(Character... args) {
+    System.out.print(args.getClass());
+    System.out.println(" length " + args.length);
+  }
+  static void g(int... args) {
+    System.out.print(args.getClass());
+    System.out.println(" length " + args.length);
+  }
+  public static void main(String[] args) {
+    f('a');
+    f();
+    g(1);
+    g();
+    System.out.println("int[]: " + new int[0].getClass());
+  }
+} /* Output:
+class [Ljava.lang.Character; length 1
+class [Ljava.lang.Character; length 0
+class [I length 1
+class [I length 0
+int[]: class [I
+*///:~
+```
+注意当非可变参数和可变参数混合使用的情况
+```java
+//: initialization/OverloadingVarargs3.java
+
+public class OverloadingVarargs3 {
+  static void f(float i, Character... args) {
+    System.out.println("first");
+  }
+  static void f(char c, Character... args) {//若这里没有char c将编译错误
+    System.out.println("second");
+  }
+  public static void main(String[] args) {
+    f(1, 'a');
+    f('a', 'b');
+  }
+} /* Output:
+first
+second
+*///:~
+```
+####5.9 枚举类型
+关键字：erum
+```java
+public enum Spiciness {
+  NOT, MILD, MEDIUM, HOT, FLAMING
+} ///:~
+
+public class EnumOrder {
+  public static void main(String[] args) {
+    for(Spiciness s : Spiciness.values())
+      System.out.println(s + ", ordinal " + s.ordinal());
+  }
+} /* Output:
+NOT, ordinal 0
+MILD, ordinal 1
+MEDIUM, ordinal 2
+HOT, ordinal 3
+FLAMING, ordinal 4
+*///:~
+
+```
+在switch中的使用
+```java
+//: initialization/Burrito.java
+
+public class Burrito {
+  Spiciness degree;
+  public Burrito(Spiciness degree) { this.degree = degree;}
+  public void describe() {
+    System.out.print("This burrito is ");
+    switch(degree) {
+      case NOT:    System.out.println("not spicy at all.");
+                   break;
+      case MILD:
+      case MEDIUM: System.out.println("a little hot.");
+                   break;
+      case HOT:
+      case FLAMING:
+      default:     System.out.println("maybe too hot.");
+    }
+  }	
+  public static void main(String[] args) {
+    Burrito
+      plain = new Burrito(Spiciness.NOT),
+      greenChile = new Burrito(Spiciness.MEDIUM),
+      jalapeno = new Burrito(Spiciness.HOT);
+    plain.describe();
+    greenChile.describe();
+    jalapeno.describe();
+  }
+} /* Output:
+This burrito is not spicy at all.
+This burrito is a little hot.
+This burrito is maybe too hot.
+*///:~
+```
