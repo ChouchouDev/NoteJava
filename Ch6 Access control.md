@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.*;
 ```
 ####6.2 Java访问权限修饰词
-6.2.1 包访问权限  
+6.2.1 包访问权限
+注意：  
+当一个类或类中的方法没有权限修饰词时，默认为宝访问权限
 6.2.2 public:接口访问权限  
 6.2.3 private:无法访问  
 6.2.4 继承访问权限
