@@ -23,11 +23,13 @@ public class Parcel1 {
 } /* Output:
 Tasmania
 *///:~
+```
 
 ####10.2 链接外部类
 所有的内部类自动拥有对其外围类所有成员的访问权。
 ####10.3 使用.this和.new
 生成对外部类对象的引用
+
 ```java 
 //: innerclasses/DotThis.java
 // Qualifying access to the outer-class object.
@@ -49,8 +51,8 @@ public class DotThis {
 } /* Output:
 DotThis.f()
 *///:~
-
 ```
+
 让某些对象，创建其某个内部类的对象
 ```java
 //: innerclasses/DotNew.java
