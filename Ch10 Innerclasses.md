@@ -66,6 +66,7 @@ public class DotNew {
   }
 } ///:~
 ```
+
 ####10.4 内部类与向上转型
 当将额你不累向上转型为基类，有期是转型为一个接口的时候，内部类就有了用武之处，。这是因为此内部类的——某个接口的实现可以完全不可见，并且
 不可用。所得到的只是指向基类或接口的引用，所以能够很方便地隐藏实现细节。
@@ -74,6 +75,7 @@ public class DotNew {
 如前所说的，都全部是成员内部类。
 #####局部内部类
 在方法的作用域内创建一个类,甚至可在任意的作用域内嵌入一个内部类
+
 ```java
 //: innerclasses/Parcel6.java
 // Nesting a class within a scope.
@@ -110,6 +112,7 @@ public class Parcel6 {
 >4、匿名内部类为局部内部类，所以局部内部类的所有限制同样对匿名内部类生效。  
 >5、匿名内部类不能是抽象的，它必须要实现继承的类或者实现的接口的所有抽象方法。  
 有下面这样一个类
+
 ```java
 //: innerclasses/Parcel7b.java
 // Expanded version of Parcel7.java
@@ -126,6 +129,7 @@ public class Parcel7b {
   }
 } ///:~
 ```
+
 使用匿名类后
 ```java
 //: innerclasses/Parcel7.java
