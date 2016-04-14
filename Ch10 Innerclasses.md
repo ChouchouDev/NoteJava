@@ -281,3 +281,54 @@ Chess move 2
 Chess move 3
 *///:~
 ```
+####10.7 嵌套类
+如果不需要内部类对象与其外围类对象之间有联系，那么可以将内部类声明为static，这就是*嵌套类*
+```java
+//: innerclasses/Parcel11.java
+// Nested classes (static inner classes).
+
+public class Parcel11 {
+  private static class ParcelContents implements Contents {
+    private int i = 11;
+    public int value() { return i; }
+  }
+  protected static class ParcelDestination
+  implements Destination {
+    private String label;
+    private ParcelDestination(String whereTo) {
+      label = whereTo;
+    }
+    public String readLabel() { return label; }	
+    // Nested classes can contain other static elements:
+    public static void f() {}
+    static int x = 10;
+    static class AnotherLevel {
+      public static void f() {}
+      static int x = 10;
+    }
+  }
+  public static Destination destination(String s) {
+    return new ParcelDestination(s);
+  }
+  public static Contents contents() {
+    return new ParcelContents();
+  }
+  public static void main(String[] args) {
+    Contents c = contents();
+    Destination d = destination("Tasmania");
+  }
+} ///:~
+
+```
+注意:  
+1、正常情况下，接口内部不能防止代码，但嵌套类可以作为接口的一部分。放到接口中的任何类都自动是public和static的。   
+2、一个内部类被嵌套多少层并不重要
+
+####10.8 为什么需要内部类
+最吸引人的方面在于： 每个内部类都能独立地继承自一个（接口的）实现，所以无论外围类是否已经继承了某个（接口的）实现，对于内部类都没有影响。  
+#####特性：
+1）内部类可以有多个实例，每个实例都有自己的状态信息，并且与其外围类对象的信息相互独立
+2）在单个外围类中，可以让多个内部类以不同的方式实现同一个接口，或继承同一个类。
+3）创建内部类对象的时刻并不依赖于外围类对象的创建
+4）内部类并没有令人迷惑的“is-a“关系，它就是一个独立的实体
+#####10.8.1
