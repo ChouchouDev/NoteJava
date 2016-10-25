@@ -222,7 +222,7 @@ fleas has dog My
 ####11.9 Set
 * Set不存在重复的元素
 * 查找是Set最重要的操作，而且我们通常选择一个HashSet实现
-* Set 具有和Collection一抹一样的接口，不象List，没有额外的功能
+* Set 具有和Collection一模一样的接口，不象List，没有额外的功能
 * TreeSet将元素存储在红-黑树数据结构中，而HashSet使用的是散列函数。
 * LinkedHashList因为查询速度的原因也使用了散列，但是看起来它使用了链表来维护元素的插入顺序  
 ```java
@@ -314,7 +314,7 @@ W U U U T T S S S O O O O N N L I I H H F E E E D D C C C B A A
 ####11.14 总结
 * List :大量访问用ArrayList, 频繁插入用LinkedList
 * 各种Queue以及栈的行为，由LinkedList提供支持
-* Map : 快速访问用HashMap;而TreeMap的键时钟保持排序状态所以没有HashMap快。
+* Map : 快速访问用HashMap;而TreeMap的键始终保持排序状态所以没有HashMap快。
 LinkedHashMap保持元素插入的书序，但是也通过散列提供快速访问能力
 * Set ：不接受重复元素，HashSet提供最快的查询速度，而TreeSet保持元素处于排序状态，LinkedHashSet以插入顺序保存元素
 
